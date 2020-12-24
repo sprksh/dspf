@@ -1,0 +1,4 @@
+# add requirements here for persistence
+
+jupyterlab-git
+pymysql

@@ -1,0 +1,27 @@
+version: '3.2'
+services:
+  datascience-notebook:
+    restart: always
+    volumes:
+      - /data/jupyter/:/home/jovyan/
+      # - /data/jupyter/notebooks:/home/jovyan/work
+      # - /data/jupyter/datasets:/home/jovyan/work/datasets
+      - /home/git/python_modules:/home/jovyan/work/modules
+      - /opt/ssl-certs/jupyter:/etc/ssl/notebook
+    ports:
+      - 8887:8888
+    container_name: my_jupyter_notebook
+    environment:
+      - JUPYTER_ENABLE_LAB=1
+      - GRANT_SUDO=yes
+      - PASSWORD=SomeBetterSetup
+      - JUPYTER_TOKEN=SomeDifficultSetup
+    command: "start-notebook.sh \
+    --NotebookApp.base_url='/jupyter/' \
+    --NotebookApp.base_kernel_url='/jupyter/' \
+    --NotebookApp.base_project_url='/jupyter/' \
+    --NotebookApp.allow_origin='*' \
+    --NotebookApp.notebook_dir=/home/jovyan/"
+    # command: "start-notebook.sh \
+    #   --NotebookApp.password=${ACCESS_TOKEN} \
+    #   --NotebookApp.certfile=/etc/ssl/notebook/jupyter.pem"

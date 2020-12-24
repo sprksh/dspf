@@ -1,0 +1,19 @@
+version: '3.2'
+
+services:
+  metabase-app:
+    image: metabase/metabase
+    restart: always
+    ports:
+      - 8000:3000
+    container_name: "my_metabase"
+    volumes:
+      # declare your mount volume /host/dir:/container/dir
+      - /tmp/metabase-data:/metabase-data
+    environment:
+      MB_DB_TYPE: mysql
+      MB_DB_DBNAME: ""
+      MB_DB_PORT: 3306
+      MB_DB_USER: ""
+      MB_DB_PASS: ""
+      MB_DB_HOST: ""

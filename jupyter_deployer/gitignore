@@ -1,0 +1,75 @@
+*.py[cod]
+
+*.code-workspace
+.vscode/
+.idea/
+__pycache__/
+/resources/
+*.xlsm
+.sass-cache/
+/media/
+/node_modules/
+*.sql
+/myenv/
+.python-version
+
+tasks
+
+*.xls*
+*.csv
+*.yaml
+*.pickle
+*.pdf
+*.log
+*.pyc
+
+
+# C extensions
+*.so
+
+# Packages
+*.egg
+*.egg-info
+build
+eggs
+parts
+bin
+var
+sdist
+develop-eggs
+.installed.cfg
+lib
+lib64
+
+# Installer logs
+pip-log.txt
+
+
+# Mr Developer
+.mr.developer.cfg
+.project
+.pydevproject
+
+# Complexity
+output/*.html
+output/*/index.html
+
+
+.webassets-cache
+
+# npm
+/node_modules/
+.npm
+.cache
+.yarn
+
+# webpack-built files
+/dobby/static/build/
+/dobby/webpack/manifest.json
+
+# Configuration
+.env
+
+# Development database
+*.db
+/venv/

@@ -1,0 +1,24 @@
+heartbeat.monitors:
+- type: http
+  schedule: '@every 10s'
+  urls:
+    - https://abc.com
+    - https://bcd.com/login
+  check.request:
+    method: GET
+    headers:
+        'Content-Type': 'application/json'
+  check.response:
+       status: 200
+
+processors:
+- add_cloud_metadata: ~
+
+output.elasticsearch:
+  hosts: '${ELASTICSEARCH_HOSTS:10.10.10.10:9200}'
+  username: '${ELASTICSEARCH_USERNAME:elastic}'
+  password: '${ELASTICSEARCH_PASSWORD:changeme}'
+setup.kibana:
+  host: '${KIBANA_HOSTS:10.101.10.10:5601}'
+  username: '${ELASTICSEARCH_USERNAME:elastic}'
+  password: '${ELASTICSEARCH_PASSWORD:changeme}'
